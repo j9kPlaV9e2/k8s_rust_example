@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rusthello
+  labels:
+    app: rusthello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rusthello
+  template:
+    metadata:
+      labels:
+        app: rusthello
+    spec:
+      containers:
+        - name: rusthello
+          image: luzv/rust_hello
+          ports:
+          - containerPort: 8888
+
